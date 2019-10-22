@@ -21,8 +21,13 @@ class LinkedList:
  
     def display(self):
         current = self.head
-        while current is not None:
-            print(current.data, end = ' ')
+        while current is not self.last_node:
+            print(current.data, end = ' -> ')
+            current=current.next
+        
+        print(current.data)
+                    
+
      
  
 a_llist = LinkedList()
@@ -30,11 +35,6 @@ n = int(input('How many elements would you like to add? '))
 for i in range(n):
     data = (input('Enter data item: '))
     a_llist.append(data)
-print('The linked list: ', end = '')
+print('The linked list : ', end = '')
 a_llist.display()
 
-time.sleep(10)
-r=pyfiglet.figlet_format('Do you wish to exit?',font='3-d')
-decision =input(r)
-if decision == 'YES' or 'y' or 'Yes' or 'yes':
-    sys.exit()
